@@ -15,4 +15,18 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
+      - label: "Start time"
+        name: "start"
+        widget: "datetime"
+        default: ""
+        format: "LLL"
       - { name: body, label: Body, widget: markdown }
+  - label: "Blog in English"
+    name: "english_posts"
+    folder: "content/_posts"
+    create: true
+    fields:
+      - {label: "Language", name: "language", widget: "select", options: ["en", "es"]}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
