@@ -7,11 +7,11 @@ intro: |-
   STANA LI??????????????
 image: /assets/background-image.jpg
 ---
-# I tova go otkrihme nai nakraq.
+# I tova go otkrihme nai nakraq.👶👶👶
 
 ## I tova go otkrihme nai nakraq.I tova go otkrihme nai nakraq.
 
-I tova go otkrihme nai nakraq.
+I tova go otkrihme nai nakraq.👶👶👶👶
 
 
 
