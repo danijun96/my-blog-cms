@@ -9,6 +9,7 @@ class IndexPage extends React.Component {
   render() {
     const siteTitle = "Gatsby Starter Personal Website"
     const data = this.props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
+    const dataHTML = this.props.data.allFile.edges[0].node.childMarkdownRemark.html
 
     return (
       <Layout location={this.props.location} title={data.title}>
@@ -26,8 +27,7 @@ class IndexPage extends React.Component {
         </h1>
         <p>{data.intro}</p>
         <p>
-          This starter comes out of the box with styled components and Gatsby's
-          default starter blog running on Netlify CMS.
+         {dataHTML}
         </p>
         <p>Now go build something great!</p>
         <Link to="/blog/">
@@ -51,6 +51,7 @@ export const query = graphql`
               intro
               image
           }
+          html
         }
       }
     }
