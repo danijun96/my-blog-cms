@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,14 +8,16 @@ import Button from "../components/button"
 class IndexPage extends React.Component {
   render() {
     const siteTitle = "Gatsby Starter Personal Website"
+    const data = this.props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={data.title}>
         <SEO
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
+        <pre>{JSON.stringify(data, null, 4)}</pre>
+        <img style={{ margin: 0 }} src={data.image} alt="Gatsby Scene" />
         <h1>
           Hey people{" "}
           <span role="img" aria-label="wave emoji">
@@ -37,3 +39,20 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    allFile (filter: {sourceInstanceName: {eq: "content"} name: {eq: "home"}}) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              title
+              intro
+              image
+          }
+        }
+      }
+    }
+  }
+}`
