@@ -39,4 +39,5 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Intro text, name: intro, widget: text}
           - {label: Image, name: image, widget: image}
+          - { name: body, label: Body, widget: markdown }
 
