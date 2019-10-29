@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,8 +9,8 @@ import Button from "../components/button"
 class IndexPage extends React.Component {
   render() {
     const siteTitle = "Gatsby Starter Personal Website"
-    const data = this.props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
-    const dataHTML = this.props.data.allFile.edges[0].node.childMarkdownRemark.html
+    const data = this.props.data.allFile.edges[0].node.childMdx.frontmatter
+    const dataBody = this.props.data.allFile.edges[0].node.childMdx.body
 
     return (
       <Layout location={this.props.location} title={data.title}>
@@ -17,7 +18,7 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <pre>{JSON.stringify(data, null, 4)}</pre>
+        {/* <pre>{JSON.stringify(this.props.data, null, 4)}</pre> */}
         <img style={{ margin: 0 }} src={data.image} alt="Gatsby Scene" />
         <h1>
           Hey people{" "}
@@ -25,10 +26,7 @@ class IndexPage extends React.Component {
             👋
           </span>
         </h1>
-        <p>{data.intro}</p>
-        <p>
-         {dataHTML}
-        </p>
+        <MDXRenderer>{dataBody}</MDXRenderer>
         <p>Now go build something great!</p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
@@ -41,19 +39,37 @@ class IndexPage extends React.Component {
 export default IndexPage
 
 export const query = graphql`
-  query {
-    allFile (filter: {sourceInstanceName: {eq: "content"} name: {eq: "home"}}) {
-      edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              title
-              intro
-              image
+query {
+  allFile (filter: {sourceInstanceName: {eq: "content"} name: {eq: "home"}}) {
+    edges {
+      node {
+        childMdx {
+          frontmatter {
+            title
+            description
+            intro
+            image
           }
-          html
-        }
+          body
       }
     }
   }
+}
 }`
+// export const query = graphql`
+//   query {
+//     allFile (filter: {sourceInstanceName: {eq: "content"} name: {eq: "home"}}) {
+//       edges {
+//         node {
+//           childMarkdownRemark {
+//             frontmatter {
+//               title
+//               intro
+//               image
+//           }
+//           excerpt
+//         }
+//       }
+//     }
+//   }
+// }`
