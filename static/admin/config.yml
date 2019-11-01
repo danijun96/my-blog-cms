@@ -41,12 +41,11 @@ collections:
           - {label: Image, name: image, widget: image}
           - { name: body, label: Body, widget: markdown }
           - {label: Title, name: title, widget: string, tagname: ""}
-          - label: Bio
-            name: Bio
-            widget: Bio
-            requred: false
+          - label: "Bio"
+            name: "Bio"
             fields:
-              - {label: Image, name: image, widget: image}
-              - { name: body, label: Body, widget: markdown }
-              - {label: Title, name: title, widget: string, tagname: ""}
+            - {label: "Template Key", name: "templateKey", widget: "hidden"}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Body", name: "body", widget: "markdown"}
+
 
