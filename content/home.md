@@ -6,6 +6,7 @@ intro: |-
   Just created File collection
   STANA LI??????????????
 image: /assets/background-image.jpg
+Bio: DA VIDIM KUDE E TOZI BIO
 ---
 # I tova go otkrihme nai nakraq.👶👶👶
 
