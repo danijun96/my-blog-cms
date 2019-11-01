@@ -21,13 +21,13 @@ class IndexPage extends React.Component {
         {/* <pre>{JSON.stringify(this.props.data, null, 4)}</pre> */}
         <img style={{ margin: 0 }} src={data.image} alt="Gatsby Scene" />
         <h1>
-          Hey people{" "}
+          Hey people{" "}👋👋👋
           <span role="img" aria-label="wave emoji">
             👋
           </span>
-        </h1>
+        </h1>k
         <MDXRenderer>{dataBody}</MDXRenderer>
-        <p>Now go build something great!</p>
+        <p>Now go build something great!👶👶👶 </p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
         </Link>

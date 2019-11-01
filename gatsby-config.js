@@ -10,7 +10,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -42,6 +41,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      con: console.log(__dirname, 'dirnamessss'),
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     'gatsby-transformer-remark',
