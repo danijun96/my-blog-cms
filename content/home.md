@@ -5,6 +5,7 @@ intro: |-
   Just created File collection
   Just created File collection
   STANA LI??????????????
+  ooo
 image: /assets/background-image.jpg
 Bio: DA VIDIM KUDE E TOZI BIO
 ---
