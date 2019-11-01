@@ -7,7 +7,7 @@ intro: |-
   STANA LI??????????????
   ooo
 image: /assets/background-image.jpg
-Bio: DA VIDIM KUDE E TOZI BIO
+Bio: 'DA VIDIM KUDE E TOZI BIO, namerihme go'
 ---
 # I tova go otkrihme nai nakraq.👶👶👶
 
