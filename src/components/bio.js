@@ -12,15 +12,17 @@ import styled from "styled-components"
 
 import { rhythm } from "../utils/typography"
 
-function Bio() {
+function Bio({data}) {
+  const dataQuery = data
   return (
+    <>
     <StaticQuery
-      query={bioQuery}
-      render={data => {
-        const { author, social } = data.site.siteMetadata
+      query={query}
+      render={query => {
+        // const { author, social } = data.site.siteMetadata
         return (
           <Container>
-            <Image
+            {/* <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               style={{
@@ -40,36 +42,54 @@ function Bio() {
               <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
               </a>
-            </p>
+            </p> */}
+          <pre>{JSON.stringify(query.allMdx.edges[10].node.frontmatter, null, 4)}</pre>
+          {console.log(query)}
           </Container>
         )
       }}
     />
+    </>
   )
 }
 
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
+export const query = graphql`
+{
+  allMdx {
+    edges {
+      node {
+        frontmatter {
+          Bio
         }
       }
     }
   }
+}
+
 `
+// const bioQuery = graphql`
+//   query BioQuery {
+//     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+//       childImageSharp {
+//         fixed(width: 50, height: 50) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//     site {
+//       siteMetadata {
+//         author
+//         social {
+//           twitter
+//         }
+//       }
+//     }
+//   }
+// `
 
 const Container = styled.div`
   display: flex;
 `
 
 export default Bio
+
